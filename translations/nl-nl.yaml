@@ -1,0 +1,579 @@
+---
+languageName: "Nederlands"
+languageContribute: "Help Rancher vertalen"
+generic:
+  actions: Acties
+  activate: Activeer
+  add: Toevoegen
+  all: Alles
+  any: Maakt niet uit
+  application: toepassing
+  as: als
+  cancel: Annuleren
+  closeModal: Sluiten
+  cluster: Cluster
+  collapseAll: Alles inklappen
+  comingSoon: Binnenkort
+  command: Opdracht
+  confirm: Bevestigen
+  containers: Containers
+  created: Aangemaakt
+  createdDate: "Aangemaakt op {date}"
+  custom: Aangepast
+  customize: Aanpassen
+  default: Standaard
+  description: Omschrijving
+  details: Details
+  disable: Uitschakelen
+  disabled: Uitgeschakeld
+  displayName: Weergavenaam
+  dockerId: Docker ID
+  domainName: Domeinnaam
+  done: Gereed
+  download: Download
+  edit: Bewerken
+  enable: Inschakelen
+  enabled: Ingeschakeld
+  entrypoint: Toegangspunt
+  environment: Omgeving
+  expandAll: Alles uitklappen
+  from: van
+  generic: 'Algemeen'
+  gigabyte: 'GB'
+  hardware: Hardware
+  healthy: Gezond
+  help: Help
+  id: ID
+  image: Image
+  import: Importeren
+  internal: Intern
+  ipAddress: IP-Adres
+  key: Sleutel
+  limit: Limiet
+  limits: Limieten
+  loading: "Bezig met laden..."
+  member: Gebruiker
+  mibibyte: 'MiB'
+  milliseconds: 'Milliseconden'
+  missing: "*%MISSING%*"
+  moreActions: Meer acties
+  na: 'n.v.t.'
+  name: Naam
+  namespace: Namespace
+  namespaces: Namespaces
+  never: Nooit
+  no: "Nee"
+  noRating: Geen beoordeling
+  node: Node
+  none: Geen
+  owner: Eigenaar
+  paste: Plakken
+  pod: pod
+  port: Poort
+  ports: Poorten
+  prefix: voorvoegsel
+  project: Project
+  random: Willekeurig
+  remove: Verwijderen
+  role: Rol
+  save: Opslaan
+  saved: Opgeslagen
+  saving: Opslaan
+  search: Zoeken
+  searchOrCustomInput: Zoek of voer uw aangepaste waarde in.
+  searching: 'Zoeken...'
+  seconds: seconden
+  select: Selecteer
+  service: Service
+  services: Diensten
+  size: Grootte
+  state: Status
+  tags: Labels
+  test: Test
+  testing: Testen
+  to: Aan
+  total: Totaal
+  type: Type
+  unknown: Onbekend
+  upload: Upload
+  url: URL
+  user: Gebruiker
+  uuid: UUID
+  value: Waarde
+  version: Versie
+  yes: "Ja"
+realmNames:
+  all: Alle
+  usWest: US West
+  usEast: US East
+  asia: Azië
+  euWest: EU West
+  euEast: EU Oost
+accountsPage:
+  detail:
+    header: Gebruikersdetails
+    table:
+      headers:
+        permission: Permissie
+        role: Rol
+        clusterName: Cluster
+        projectName: Project
+        active: Actief
+        created: Toestaan
+      global:
+        title: Algemene machtigingen
+        description: Toegang tot het beheren van dingen die invloed hebben op de gehele installatie
+        admin: Deze gebruiker is een beheerder en heeft alle machtigingen.
+        noRoles: Deze gebruiker heeft geen globale rollen
+      cluster:
+        title: Cluster rollen
+        description: Rollen die zijn toegekend aan deze gebruiker voor afzonderlijke clusters
+        noRoles: Deze gebruiker heeft geen globale rollen
+      project:
+        title: Project rollen
+        description: Rollen die zijn toegekend aan deze gebruiker voor individuele project
+        noRoles: Deze gebruiker heeft geen project rollen
+      roles:
+        title: Rollen
+  index:
+    header: Gebruikers
+    localLink: Gebruiker toevoegen
+    table:
+      id: ID
+      kind: Soort
+      identity: Identiteit
+      noData: Er zijn nog geen gebruikers
+      noName: Geen
+  new:
+    header: Gebruiker toevoegen
+    errors:
+      usernameReq: Gebruikersnaam is vereist.
+      usernameInExists: Gebruikersnaam is al in gebruik. Kies een nieuwe gebruikersnaam.
+      pwReq: Wachtwoord is vereist.
+    form:
+      username:
+        labelText: Gebruikersnaam
+        placeholder: "bijv. jjansen"
+      password:
+        labelText: Wachtwoord
+      name:
+        labelText: Weergavenaam
+        placeholder: "bijv. Jan Jansen"
+      type:
+        labelText: Accounttype
+      description:
+        labelText: Omschrijving
+        placeholder: "bijv. Deze account is van Jan Jansen"
+  modal:
+    password: Wachtwoord wijzigen
+podSecurityPoliciesPage:
+  index:
+    table:
+      name: Naam
+  new:
+    errors:
+      nameReq: Naam is verplicht.
+rolesPage:
+  index:
+    table:
+      subjectKind: Soort
+      template: Sjabloon
+  editRole: Rol bewerken
+  saveEdit: Bewerken
+  saveNew: Maak aan
+  new:
+    errors:
+      nameReq: Naam is verplicht.
+      memberReq: Lid is verplicht.
+      nameInExists: Naam is al bestaat. Gebruik een nieuwe rolnaam.
+      ruleResourceReq: Resource is vereist voor een regel.
+      roleTemplate: Rol sjabloon is vereist.
+    form:
+      name:
+        labelText: Naam
+        placeholder: "bijvoorbeeld ontwikkelaars"
+      context:
+        labelText: Context
+      allow:
+        create: Maak aan
+        delete: Verwijder
+        deletecollection: 'Collectie verwijderen'
+        get: Haal op
+        list: Lijst
+        patch: Patch
+        update: Update
+        watch: Bekijk
+        labelText: Toestaan
+        resource: Document
+        addAction: Bestand toevoegen
+apiPage:
+  currentEndpoint: 'Eindpunt:'
+  table:
+    state: Status
+    description: Omschrijving
+    created: Aangemaakt
+authPage:
+  shibboleth:
+    enabled:
+      authenticated:
+        header:
+          text: Authenticatie
+      disableAccess:
+        header: "Gevarenzone&trade;"
+        warning: '<b class="text-danger">Opgelet:</b>Toegangsbeheer uitschakelen geeft volledige toegang tot {appName} aan iedereen die deze pagina kan bereiken of de API.'
+        confirmDisable: "Weet U het zeker? Klik nogmaals om toegangsbeheer echt uit te schakelen"
+        disable: Toegangsbeheer uitschakelen
+      groupsField: 'Groepen:'
+      displayName: 'Weergavenaam:'
+      userName: 'Gebruikersnaam:'
+    disabled:
+      header: '1. Configureer Shibboleth Account'
+      label: "{providerName} is niet geconfigureerd"
+      testAuth:
+        header: '2. Testen en activeer authenticatie'
+    providerName:
+      shibboleth: Shibboleth
+  root:
+    header: Toegangsbeheer
+  github:
+    standard: GitHub
+    enterprise: GitHub Enterprise
+    header:
+      disabled:
+        label: GitHub is niet geconfigureerd
+    authenticated:
+      header:
+        text: Authenticatie
+      disableAccess:
+        header: "Gevarenzone&trade;"
+        warning: '<b class="text-danger">Opgelet:</b>Toegangsbeheer uitschakelen geeft volledige toegang tot {appName} aan iedereen die deze pagina kan bereiken of de API.'
+        confirmDisable: "Weet U het zeker? Klik nogmaals om toegangsbeheer echt uit te schakelen"
+    notAuthenticated:
+      form:
+        isGHEnterprise:
+          labelText: Beveiligde verbinding gebruiken
+        enterpriseHost:
+          placeholder: 'bijv. github.example.com'
+  azuread:
+    enabled:
+      header: 'Gevarenzone&trade;'
+      reallyDisable: 'Weet U het zeker? Klik nogmaals om toegangsbeheer echt uit te schakelen'
+      promptDisable: Toegangsbeheer uitschakelen
+    test:
+      username:
+        placeholder: 'bijv. jjansen'
+  localAuth:
+    accessEnabled:
+      header: 'Gevarenzone&trade;'
+      warning: '<b class="text-danger">Opgelet:</b>Toegangsbeheer uitschakelen geeft volledige toegang tot {appName} aan iedereen die deze pagina kan bereiken of de API.'
+      buttonText:
+        disable: 'Weet U het zeker? Klik nogmaals om toegangsbeheer echt uit te schakelen'
+        prompt: Toegangsbeheer uitschakelen
+    accessDisabled:
+      form:
+        login:
+          placeholder: 'bijv. jjansen'
+        name:
+          labelText: Volledige Naam
+          placeholder: 'bijv. Jan Jansen'
+        password:
+          labelText: Wachtwoord
+        confirmPassword:
+          labelText: Wachtwoord bevestigen
+    accessControl:
+      header: '2. Toegangsbeheer inschakelen'
+certificatesPage:
+  index:
+    header: Certificaten
+  new:
+    form:
+      name:
+        placeholder: bijv. mijndomein.nl
+      description:
+        placeholder: bijv. EV certificaat voor mijndomein.nl
+editDns:
+  name:
+    placeholder: bijv. myapp
+failWhalePage:
+  header: Fout
+hostsPage:
+  cloudHostsPage:
+    addPage:
+      env: 'Omgeving:'
+  hostPage:
+    limits:
+      cpu: 'CPU-limiet:'
+      memory: 'Geheugenlimiet:'
+    infoMultiStats:
+      docker: 'Docker:'
+    storageTab:
+      table:
+        header:
+          state: Status
+loginPage:
+  greeting: "Hallo!<br><span>Welkom bij {appName}</span>"
+  shibbolethError:
+    401: "Ongeautoriseerd"
+    500: "Interne Server Fout"
+registriesPage:
+  index:
+    table:
+      header:
+        state: Status
+  new:
+    form:
+      custom:
+        placeholder: bijv. registry.example.com
+        help: Alleen de hostnaam of het IP-adres, zonder toevoeging van het protocol (https://)
+      username:
+        placeholder: bijv. gebruikersnaam
+      password:
+        labelText: Wachtwoord
+        placeholder: bijv. wachtwoord
+servicePage:
+  certsTab:
+    default: Standaard Certificaat
+  new:
+    form:
+      name:
+        placeholder: bijv. myapp
+      description:
+        placeholder: bijv. Mijn applicatie
+  newBalancer:
+    form:
+      name:
+        placeholder: bijv. website
+verifyResetPasswordPage:
+  button: Wachtwoord bijwerken
+ldap:
+  header:
+    disabled:
+      label: "{providerName} is niet geconfigureerd"
+  accessEnabled:
+    general:
+      defaultDomain: "Standaard Domein:"
+    disable:
+      confirmDisable:
+        pre: Toegangsbeheer uitschakelen
+  accessConfig:
+    defaultDomain:
+      labelText: Standaard Inlog Domein
+      placeholder: "bijv. mijnbedrijf"
+  testAuth:
+    userName:
+      labelText: Uw gebruikersnaam
+    password:
+      labelText: Uw wachtwoord
+accordionRow:
+  status:
+    error: Fout
+    standard: Standaard
+catalogSettings:
+  more:
+    name:
+      placeholder: bijv. mijncatalogus
+    branch:
+      placeholder: 'bijv. master'
+containerLogs:
+  stderr: Standaardfout
+containerShell:
+  status:
+    error: "Fout: {error}"
+editAccount:
+  form:
+    name:
+      placeholder: bijv. Jan Jansen
+    description:
+      placeholder: bijv. Dit account is van Jan Jansen
+editStack:
+  name:
+    placeholder: bijv. myapp
+stacksPage:
+  table:
+    instanceState: Container Statussen
+    instanceStateWithIcon: Statussen
+formBalancerListeners:
+  access:
+    label: Toegang
+  sourceIp:
+    placeholder: "bijv. 1.2.3.4; Standaard: Alles"
+formBalancerRules:
+  access:
+    label: Toegang
+  sourceIp:
+    placeholder: "bijv. 1.2.3.4; Standaard: Alles"
+  sourcePort:
+    placeholder: bijv. 80
+  path:
+    placeholder: bijv. /foo
+  hostname:
+    placeholder: bijv. example.com
+  backendName:
+    placeholder: bijv. webapp
+  targetPort:
+    placeholder: bijv. 80
+  selector:
+    placeholder: bijv. foo=bar
+formCommand:
+  command:
+    placeholder: bijv. /usr/sbin/httpd -f httpd.conf
+  environment:
+    label: Omgevingslabels
+  workingDir:
+    placeholder: bijv. /myapp
+formDisks:
+  name:
+    placeholder: bijv. data
+  readIops:
+    placeholder: bijv. 1000
+  writeIops:
+    placeholder: bijv. 1000
+formEngineOpts:
+  engineInstallUrl:
+    label: Docker installatie URL
+    placeholder: bijv. http://get.docker.com/
+  engineStorageDriver:
+    placeholder: bijv. overlay
+  engineOpts:
+    keyPlaceholder: bijv. log-driver
+    valuePlaceholder: bijv. syslog
+  engineEnv:
+    label: Engine Omgeving
+    addActionLabel: Omgevingsvariabele toevoegen
+    keyPlaceholder: bijv. HTTP_PROXY
+    valuePlaceholder: bijv. http://your-proxy:8080
+  engineInsecureRegistry:
+    valuePlaceholder: bijv. registry.example.com
+  engineRegistryMirror:
+    valuePlaceholder: bijv. https://my-mirror.example.com:5000
+formEnvVar:
+  title: Omgevingsvariabelen
+  noData: Geen Omgevingsvariabelen
+  labels:
+    key: Sleutel
+formHealthCheck:
+  port:
+    placeholder: bijv. 80
+formKeyValue:
+  key:
+    label: Sleutel
+    placeholder: Sleutel
+formImage:
+  label: Docker Image
+formNetwork:
+  hostname:
+    placeholder: bijv. web
+    dockerId: Gebruik de Docker container ID
+  domainName:
+    placeholder: bijv. example.com
+  resolvingServers:
+    placeholder: bijv. 8.8.4.4
+  searchDomains:
+    placeholder: bijv. prod.example.com
+formSecurity:
+  swapLimit:
+    unlimited: Ongelimiteerd
+  swappiness:
+    default: Gebruik de standaard van de host
+  shares:
+    placeholder: bijv. 1024
+  deviceBinding:
+    pathHost:
+      placeholder: bijv. /dev/sdc
+    pathContainer:
+      placeholder: bijv. /dev/xsdc
+  isolation:
+    default: Standaard (Container)
+formSslTermination:
+  defaultCertificate:
+    prompt: Kies een Certificaat...
+formUserLabels:
+  key:
+    label: Sleutel
+    placeholder: bijv. /foo
+  value:
+    placeholder: bijv. bar
+hostSettings:
+  hostUrl:
+    new:
+      placeholder: "bijv. http://example.com:8080"
+hostPod:
+  supportState:
+    unsupported: Niet ondersteunde Docker versie
+    untested: Niet geteste Docker versie
+inputIdentity:
+  dropdownLabel:
+    groups: Uw groepen
+labelsSection:
+  key: Sleutel
+loginUserPass:
+  userPlaceholder: bijv. jjansen
+  passwordLabel: Wachtwoord
+modalAboutComponent:
+  version: Versie
+modalAddPayment:
+  errors:
+    state: Een status is noodzakelijk.
+  form:
+    default:
+      label: Standaard Kaart
+    address:
+      state:
+        label: Status
+      country:
+        placeholder: Verenigde Staten
+modalConfirmDeactivate:
+  buttons:
+    project:
+      message: omgeving deactiveren
+    environment:
+      message: stop services voor
+      button: Stop Services
+    default:
+      message: deactiveren
+      button: Deactiveren
+modalEditSetting:
+  reset:
+    label: Standaard herstellen
+newContainer:
+  name:
+    placeholder: bijv. myapp
+  description:
+    placeholder: bijv. Mijn Applicatie
+  environment:
+    label: Omgevingsvariabelen
+    addAction: Voeg Variabele toe
+    keyLabel: Variabele
+    keyPlaceholder: bijv. FOO
+    valueLabel: Waarde
+    valuePlaceholder: bijv. bar
+newPassword:
+  placeholder: Nieuw wachtwoord
+  password: Nieuw wachtwoord
+  passwordNoMatch: Wachtwoorden komen niet overeen
+pageFooter:
+  help: 'Hulp & Documentatie'
+telemetryOpt:
+  header: Statistieken
+  label: Sta het verzamelen van anonieme statistieken toe
+viewEditDescription:
+  form:
+    name:
+      placeholder: bijv. lab
+    description:
+      placeholder: bijv. Omgeving voor het experimeteren van ontwikkelaars
+containerChoices:
+  hostGroupWithState: "Host: {name} ({state})"
+nav:
+  environment:
+    label: Omgeving
+    all: Alle Omgevingen
+    your: Uw Omgevingen
+    selected: Geselecteerde Omgeving
+    edit: 'Bewerk "{name}"'
+validation:
+  required: '"{key}" is vereist'
+model:
+  account:
+    kind:
+      project: Omgeving

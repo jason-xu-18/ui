@@ -1,0 +1,114 @@
+---
+languageName: "Tiếng Anh"
+generic:
+  actions: Tác vụ
+  activate: Kích hoạt
+  all: Tất cả
+  any: Bất kỳ
+  cancel: Hủy
+  closeModal: Đóng
+  collapseAll: Thu gọn tất cả
+  confirm: Xác nhận
+  containers: Containers
+  created: Đã tạo
+  createdDate: "Ngày tạo {date}"
+  default: Mặc định
+  description: Mô tả
+  details: Chi tiết
+  disable: Vô hiệu
+  disabled: Đã Vô hiệu hoá
+  dockerId: Docker ID
+  domainName: Tên miền
+  enable: Kích hoạt
+  enabled: Đã kích hoạt
+  entrypoint: Entrypoint
+  environment: Môi trường
+  expandAll: Mở rộng tất cả
+  hardware: Phần cứng
+  id: ID
+  image: Image
+  internal: Nội bộ
+  ipAddress: Địa chỉ IP
+  limit: Giới hạn
+  limits: Giới hạn
+  loading: "Đang tải..."
+  mibibyte: 'MiB'
+  missing: "%MISSING% *"
+  moreActions: Thêm hành động
+  na: 'n/a'
+  name: Tên
+  no: "Không"
+  noRating: Không xếp hạng
+  none: Rỗng
+  ports: Cổng
+  remove: Xóa
+  role: Vai trò
+  save: Lưu
+  saved: Đã lưu
+  saving: Đang lưu
+  search: Tìm kiếm
+  seconds: giây
+  select: Chọn
+  service: Dịch vụ
+  services: Các Dịch Vụ
+  state: Trạng thái
+  tags: Thẻ
+realmNames:
+  usWest: Phía tây Hoa Kỳ
+  usEast: Phía Đông Hoa Kỳ
+  asia: Châu Á
+accountsPage:
+  index:
+    table:
+      id: ID
+      kind: Loại
+      noName: Rỗng
+  new:
+    form:
+      username:
+        placeholder: "Ví dụ: jsmith"
+      password:
+        labelText: Mật khẩu
+      name:
+        placeholder: "Ví dụ: John Smith"
+      type:
+        labelText: Loại tài khoản
+      description:
+        labelText: Mô tả
+        placeholder: "Ví dụ: tài khoản này là cho John Smith"
+apiPage:
+  currentEndpoint: 'Endpoint:'
+  table:
+    state: Trạng thái
+    description: Mô tả
+    created: Đã tạo
+authPage:
+  shibboleth:
+    enabled:
+      authenticated:
+        header:
+          text: Xác thực
+      disableAccess:
+        header: "Khu vực nguy hiểm&trade;"
+        warning: '<b class="text-danger"> chú ý:</b> Tắt tính năng kiểm soát truy cập sẽ cung cấp cho hoàn toàn quyền kiểm soát {appName} cho bất cứ ai có thể truy cập trang này hoặc các API.'
+        confirmDisable: "Bạn có chắc không?  Click lần nữa để thực sự vô hiệu hoá kiểm soát truy cập"
+        disable: Vô hiệu hoá kiểm soát truy cập
+      groupsField: 'Nhóm:'
+      displayName: 'Tên hiển thị:'
+      userName: 'Tên đăng nhập:'
+      userId: 'ID người dùng:'
+    disabled:
+      label: "{providerName} chưa được cấu hình"
+  github:
+    notAuthenticated:
+      ul:
+        li1:
+          text: 'Dành cho tài khoản cơ bản của GitHub, <a href="https://github.com/settings/developers" target="_blank">Nhấn vào đây</a>để truy cập các ứng dụng trong cửa sổ mới.'
+          ul:
+            li1: "Có thể dùng tài khoản Github doanh nghiệp cho tài khoản của bạn. Vui lòng nhấn cài đặt và chạy danh sách ứng dụng."
+        li2:
+          text: 'Nhấp vào "Đăng ký ứng dụng mới" và điền vào biểu mẫu:'
+loginPage:
+  shibbolethError:
+    401: "Unauthorized"
+    500: "Internal Server Error"

@@ -1,0 +1,363 @@
+// Header
+$header                              : $secondary !default;
+$header-link                         : $light-grey !default;
+$header-link-active                  : $primary !default;
+$user-btn                            : darken($header, 10%) !default;
+$nav-spacing: 4px;
+
+.page-header {
+  @include no-select;
+  margin-bottom: 10px;
+
+  NAV {
+    font-size: .9em;
+    width: 100%;
+    // border-collapse: collapse;
+    // border-spacing: 0px;
+    // display: table;
+    box-sizing: border-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .dropdown-menu {
+      background: $dropdown-bg;
+      border: 0;
+      z-index: 4;
+      padding: 0;
+      top: auto!important;
+      border-radius: 0;
+      box-shadow: $darken-helper 0 0 7px;
+    }
+
+    > ul {
+      background-color: $header;
+      border-radius: 3px 0 0 3px;
+      // display: table-cell;
+      padding: 0;
+      // width: 100%;
+      vertical-align: middle;
+
+      &.nav-main {
+        flex-grow: 1;
+      }
+
+      > li {
+        list-style-type: none;
+        display: inline-block;
+
+        &.active {
+          > .ember-basic-dropdown-trigger > a,
+          > a {
+            color: $info;
+            text-decoration: none;
+            margin: 0;
+          }
+        }
+
+        > .ember-basic-dropdown-trigger > a,
+        > a {
+          color: $header-link;
+          display: block;
+          padding: 11px;
+          border-bottom: solid $nav-spacing transparent;
+          border-top: solid $nav-spacing transparent;
+
+          &:hover {
+            background-color: darken($header, 5%);
+            color: white;
+            text-decoration: none;
+          }
+
+          .icon-chevron-down {
+            font-size: .75em;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-logo {
+    // display:table-cell;
+    height: 48px;
+    background-size: auto 32px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .nav-user {
+    // display:table-cell;
+    border-radius: 0 3px 3px 0;
+    margin: 0;
+
+    > li > a {
+      display: block;
+      padding: 4px 10px;
+
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+
+    .user-auth {
+      line-height: initial;
+      padding: 10px 20px 10px 10px;
+      background: $accent-bg;
+    }
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-cluster {
+    float: left;
+    background-color: $user-btn;
+
+    a {
+      &::after {
+      content: '';
+      border-left: 8px solid $user-btn;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      position: absolute;
+      top: 22px;
+      right: -8px;
+    }
+
+      &:hover {
+        background-color: mix($user-btn, black, 80%);
+        color: white;
+        text-decoration: none;
+
+        &::after {
+          border-left-color: mix($user-btn, black, 80%);
+        }
+      }
+    }
+
+
+    .ember-basic-dropdown-trigger {
+      max-width: 300px;
+      @include clip;
+      @include hand;
+
+      > a {
+        padding-right: 30px;
+        padding-left: 10px;
+
+        &.two-line {
+          padding-top: 0;
+          padding-bottom: 1px;
+        }
+      }
+
+    }
+
+    .chevron {
+      color: white;
+      position: absolute;
+      right: 10px;
+      top: 21px;
+    }
+  }
+
+  .ember-basic-dropdown-trigger {
+    &.active {
+      > a {
+        color: $info;
+        text-decoration: none;
+        margin: 0;
+      }
+    }
+
+    > a {
+      color: $header-link;
+      display: block;
+      padding: 11px;
+      border-bottom: solid $nav-spacing transparent;
+      border-top: solid $nav-spacing transparent;
+
+      .icon-chevron-down {
+        font-size: .75em;
+      }
+    }
+
+  }
+
+  .quick-add {
+    display:table-cell;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    li {
+      display: block;
+      a {
+        display: block;
+      }
+    }
+  }
+
+  .logo-oss {
+    width: 80px;
+    background-image: url('images/logos/main.svg');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 32px;
+  }
+
+  .bg-error.badge-xs {
+    position: absolute;
+    right: 4px;
+    top: 15px;
+    text-align: center;
+    width: 19px;
+    border-radius: 90%;
+
+    a {
+      color: white;
+    }
+  }
+
+  .project-link {
+    position: relative;
+    .default-project {
+      position: absolute;
+      font-size: 10px;
+      left: 10px;
+      top: 8px;
+      color: $warning;
+
+      &.nested {
+        left: 25px;
+      }
+    }
+  }
+}
+
+.project-menu {
+  overflow: hidden;
+
+  $labels: 22px;
+  $item: 50px;
+
+  .clusters UL, .projects UL {
+    overflow-y: auto;
+  }
+
+  display: grid;
+  grid-template-rows: $item auto;
+
+  LABEL {
+    @include clip;
+    height: $labels;
+    color: $text-muted;
+    font-size: .8em;
+    padding: 0 10px;
+    display: block;
+    border-bottom: 1px solid $accent-border;
+    margin-bottom: 2px;
+  }
+
+  .clusters {
+    grid-column-start: 1;
+    grid-row-start: 2;
+
+    border-right: 1px solid black;
+    background-color: $accent-bg;
+  }
+
+  .projects {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+
+  .global, .search {
+    border-bottom: 1px solid $accent-border;
+    background-color: $accent-one;
+  }
+
+  .global {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    line-height: 40px;
+  }
+
+  .search {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    padding: 5px 10px;
+  }
+
+  .search-match {
+    font-weight: bold;
+    background-color: yellow;
+  }
+
+  .item {
+    height: $item;
+    padding: 5px 10px;
+    @include hand;
+
+    &.project:hover {
+      background-color: $secondary;
+      A, .state {
+        color: white;
+      }
+      A {
+        text-decoration: underline;
+      }
+    }
+
+    .top {
+    }
+
+    &:not(:first-child) {
+      border-top: 1px solid $accent-border;
+    }
+  }
+
+  .state {
+    color: $text-muted;
+    font-size: .8em;
+    padding: 0;
+    margin: 0;
+  }
+
+  LI {
+    &.active {
+      background-color: $primary;
+      A, .state {
+        color: white;
+      }
+    }
+
+    &.not-ready {
+      cursor: not-allowed;
+
+      A, .state {
+        cursor: not-allowed !important;
+        color: $text-muted;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .global LI:hover, LI.hover {
+    background-color: $secondary;
+    A, .state {
+      color: white;
+    }
+    A {
+      text-decoration: underline;
+    }
+  }
+}

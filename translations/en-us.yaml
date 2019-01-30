@@ -349,7 +349,6 @@ apiPage:
     state: State
     name: Access Key
     description: Description
-    scope: Scope
     created: Created
     expires:
       label: Expires
@@ -398,7 +397,6 @@ authPage:
       ping: Ping
       adfs: AD FS
       keycloak: Keycloak
-      okta: Okta
     authError: 'Access was not authorized'
     popupError: 'Please disable your pop-up blocker and click "Authenticate" again.'
   ping:
@@ -412,10 +410,6 @@ authPage:
   adfs:
     buttonText:
       pre: 'Authenticate with AD FS'
-      post: Waiting to hear back from IDP
-  okta:
-    buttonText:
-      pre: 'Authenticate with Okta'
       post: Waiting to hear back from IDP
 
 
@@ -597,19 +591,6 @@ authPage:
       buttonText:
         pre: Enable Local Auth
         post: 'Enabling...'
-
-backupsPage:
-  header: etcd Snapshots
-  detail: etcd snapshots, if enabled, are cluster snapshots periodicaly taken at predefined intervals that can be used to restore clusters from a previous version.
-  table:
-    state: State
-    target:
-      label: Target
-      s3: S3
-      local: Local
-    name: Name
-    created: Created
-    noData: There are no etcd snapshots
 
 balancerPage:
   noMatch: No balancers match the current search
@@ -929,42 +910,6 @@ editDns:
     view: "Record: {name}"
   name:
     placeholder: e.g. myapp
-  sessionAffinity:
-    title: Session Affinity
-    detail: Map connections to a consistent target based on their source IP
-    label: Enable session affinity
-  externalIPs:
-    addActionLabel: Add External IP
-    placeholder: e.g. 80.11.12.10
-    value: External IPs
-  loadBalancerIP:
-    label: Load Balancer IP
-    placeholder: e.g. 78.11.24.19
-  loadBalancerSourceRanges:
-    addActionLabel: Add Source Range
-    placeholder: e.g. 143.231.0.0/16
-    value: Load Balancer Source Ranges
-  healthCheckNodePort:
-    label: Health Check Node Port
-    placeholder: e.g. 8080
-  externalTrafficPolicy:
-    label: External Traffic Policy
-    local: Local
-    cluster: Cluster
-  publishNotReadyAddresses:
-    label: Published IP Addresses
-    readyOnly: Only ready endpoints
-    all: All endpoints
-  sessionAffinityConfig:
-    label: Session Sticky Time
-    placeholder: e.g. 10800
-  kind:
-    label: As a
-    clusterIP: Cluster IP (Internal Only)
-    loadBalancer: Layer-4 Load Balancer
-    nodePort: NodePort(On every node)
-    externalName: ExternalName
-    headless: Headless Service
   description:
     placeholder: e.g. Current version of MyApp
   selector:
@@ -1025,33 +970,6 @@ cruPersistentVolumeClaim:
     label: Storage Class
     prompt: Use the default class
 
-cruVolumeClaimTemplate:
-  title:
-    define: Define Volume Claim Template
-    new: Add Volume Claim Template
-    edit: "Edit Volume Claim Template: {name}"
-    view: "Volume Claim Template: {name}"
-  define:
-    addActionLabel: Define
-  capacity:
-    label: Capacity
-    unit: GiB
-  name:
-    placeholder: e.g. myvol
-  source:
-    label: Source
-    pv: Use an existing persistent volume to define a template
-    storageClass: Use a Storage Class to define a template
-  pv:
-    label: Persistent Volume
-    prompt: Select a persistent volume...
-  storageClass:
-    label: Storage Class
-    prompt: Use the default class
-  customize:
-    title: Customize
-    detail: Customize Advanced options
-
 cruPrivateRegistry:
   title:
     label: Private Registries
@@ -1083,61 +1001,6 @@ cruVolume:
     title: Source Configuration
     detail: Configure options for the selected volume source
     prompt: Choose a volume source...
-
-globalDnsPage:
-  header: Global DNS Entries
-  newDns: Add DNS Entry
-  noDnsMatch: No DNS entries match the current search.
-  noDnsData: There are no global DNS entries yet.
-  newProvider: Add DNS Provider
-  noDnsProviderMatch: No DNS providers match the current search.
-  noDnsProviderData: There are no global DNS providers yet.
-  entriesPage:
-    add: Add Global DNS Entry
-    table:
-      name: Name
-      fqdn: FQDN
-      target: Target
-      provider: Provider ID
-    config:
-      title: Configure DNS Entry
-      detail: Provide your configuration details to add a new global DNS entry
-      configType: Resolves To
-      multi: Multi Cluster App
-      project: Projects
-      fqdn:
-        label: FQDN
-        placeholder: dev.example.com
-      multiCluster:
-        label: Multi Cluster App Target
-        placeholder: no multi cluster app selected
-        add:
-          label: Add Target
-      provider:
-        label: Provider
-        placeholder: Choose a provider
-      projects:
-        label: Target Projects
-  providersPage:
-    title: Global DNS Providers
-    add: Add Global DNS Provider
-    table:
-      name: Name
-      provider: Provider Name
-      rootDomain: Root Domain
-    config:
-      root:
-        label: Root Domain
-        placeholder: Your root domain
-      accessKey:
-        label: Access Key
-        placeholder: Your access key
-      secretKey:
-        label: Secret Key
-        placeholder: Your secret key
-
-multiClusterAppsPage:
-  header: Multi Cluster Apps
 
 # If you change translations here also change the translation in app/utils/constants.js under the FALLBACK_TRANSLATIONS key
 # those are present in case we have an error in the app and can not load the translations file
@@ -1411,12 +1274,11 @@ servicePage:
   multistat:
     type: 'Workload Type'
     fqdn: 'FQDN'
-    scale: 'Config Scale'
+    scale: 'Scale'
     image: 'Image'
     namespace: 'Namespace'
     created: 'Created'
     daemonSetScale: '1 per node'
-    currentScale: 'Ready Scale: {count}'
   serviceType:
     deployment: Deployment
     replicaSet: Replica Set
@@ -1655,7 +1517,6 @@ notifierPage:
     email: Email
     pagerduty: PagerDuty
     webhook: Webhook
-    wechat: WeChat
   slack:
     url: URL
     urlPlaceholder: e.g. https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
@@ -1688,28 +1549,6 @@ notifierPage:
     serviceKeyPlaceholder: Your PagerDuty Integration Key
     helpText: |
       Here's how you <a href="https://www.pagerduty.com/docs/guides/prometheus-integration-guide/" target="_blank" rel="nofollow noopener noreferrer">create an Integration Key</a> for PagerDuty.
-  wechat:
-    recipientType:
-      label: Recipient Type
-      tag: Tag
-      party: Party
-      user: User
-    secret:
-      label: Application Secret
-      helpText: You can find Secret in <a href="https://work.weixin.qq.com/wework_admin/frame#apps" target="_blank" rel="nofollow noopener noreferrer">app detail</a> page.
-    agent:
-      label: Application Agent ID
-      helpText: You can find AgentId in <a href="https://work.weixin.qq.com/wework_admin/frame#apps" target="_blank" rel="nofollow noopener noreferrer">app detail</a> page.
-    corp:
-      label: Corporation ID
-      helpText: |
-        Click <a href="https://work.weixin.qq.com/wework_admin/frame#profile" target="_blank" rel="nofollow noopener noreferrer">here</a> to find your Corporation ID.
-    defaultRecipient:
-      label: Default Recipient
-    secretPlaceholder: Your app secret
-    agentPlaceholder: e.g. 1000003
-    corpPlaceholder: e.g. wwc0cc3d58f9b021b6
-    defaultRecipientPlaceholder: e.g. 2
 
   webhook:
     url: URL
@@ -1893,12 +1732,6 @@ annotationsSection:
   noData: No Annotations
   noMatch: No annotations match the current search
 
-authorizedEndpoint:
-  enabled:
-    label: Authorized Cluster Endpoint
-  fqdn:
-    label: FQDN
-
 taintsSection:
   title: Taints
   detail: Taints mark pods so that they are only scheduled to a node is marked as being able to "tolerate" it
@@ -1912,7 +1745,7 @@ billingInfo:
   header: Billing Info
   addNew: Add Payment Method
   card: "{brand}: ...{last}"
-  noSub: You don't have an active payment method
+  noSub: You do not have an active payment method
   table:
     title:
       cardType: "Brand: {brand}"
@@ -1996,8 +1829,8 @@ catalogSettings:
   header: Catalogs
   notAvailable: "Not available: there is a custom catalog called <code>{name}</code>"
   helpText: Currently only Helm catalogs are supported
-  currentCluster: Cluster
-  currentProject: Project
+  currentCluster: This Cluster
+  currentProject: This Project
   globalCatalog: Global
   library:
     label: Library
@@ -2581,32 +2414,6 @@ clusterNew:
       label: EIP Share Type
   rke:
     etcd:
-      backupConfig:
-        legacy: "This cluster was configured with a legacy ectd snapshot api. The new api replaces the creation time and retention time durations with a simpler creation time in hours and retention count. We have migrated your creation period automatically. Retention count has been configured to the default of 6 backups (current retention duration: {duration}), if you're okay with this setting no further action is required. If not, you may change the setting in the advanced settings section."
-        retention:
-          label: Snapshot Retention Count
-          placeholder: "12"
-        interval:
-          label: Snapshot Creation Period
-          placeholder: "6"
-        bucketName:
-          label: S3 Bucket Name
-          placeholder: "backups"
-        region:
-          label: S3 Region
-          placeholder: "us-west-2"
-        endpoint:
-          label: S3 Region Endpoint
-          placeholder: "s3.us-west-2.amazonaws.com"
-        accessKey:
-          label: Access Key
-          placeholder: Your AWS access key
-        secretKey:
-          label: Secret Key
-          placeholder: Your AWS secret key
-          provided: Provided
-      location:
-        label: etcd Snapshot Target
       heartbeat:
         label: etcd Heartbeat Interval
         placeholder: Time of a heartbeat interval
@@ -2679,7 +2486,6 @@ clusterNew:
       flannelCustom: Flannel (Windows Support Available)
       calico: Calico
       canal: Canal (Network Isolation Available)
-      weave: Weave
       options:
         flannel:
           iface:
@@ -2766,10 +2572,6 @@ clusterNew:
     advanced:
       label: Advanced Cluster Options
       detail: Customize advanced options
-    authorizedEndpoint:
-      title: Authorized Cluster Endpoint
-      detail: "Enabling the authorized cluster endpoint allows direct communication with the cluster, bypassing the Rancher API proxy. Authorized endpoint's can be retrieved by generating a kubeconfig for the cluster."
-      label: Authorized Cluster Endpoint
   custom:
     label: Custom
     shortLabel: Custom
@@ -3593,9 +3395,6 @@ editApiKey:
   secretKey: Secret Key (password)
   basicAuth: "Access Key and Secret Key can be sent as the username and password for HTTP Basic auth to authorize requests.  You can also combine them to use as a Bearer token:"
   token: Bearer Token
-  scope: Scope
-  scopeSelect:
-    prompt: no scope
   ttl:
     label: Automatically Expire
     never: Never
@@ -4321,25 +4120,6 @@ formCustomMetrics:
   noPorts: No Endpoints
   addActionLabel: Add Metrics Endpoint
 
-formServicePorts:
-  header: Port Mapping
-  addAction: Add Port
-  noPorts: This service has no port maps.
-  name:
-    label: Port Name
-    placeholder: "e.g. myport"
-  port:
-    label: Publish the service port
-    placeholder: "e.g. 8088"
-  protocol:
-    label: Protocol
-  targetPort:
-    label: Target Port
-    placeholder: "e.g. 80"
-    default: "Same as service port"
-  nodePort:
-    label: Node Port
-    placeholder: "e.g. 30000"
 formPorts:
   header: Port Mapping
   addAction: Add Port
@@ -4738,23 +4518,17 @@ formVolumeRow:
   name:
     label: Volume Name
     placeholder: e.g. vol1
-  volumeClaimTemplateName:
-    label: Volume Claim Template Name
-    placeholder: e.g. vol1
-    vctWarning: Stateful workloads launched with volume claim templates will become uneditable due to a <a href="https://github.com/kubernetes/kubernetes/issues/69041" target="_blank" rel="nofollow noreferrer noopener">upstream bug</a> in Kubernetes. Please be aware that this limitation exists before launching your new workload.
   mode:
     label: Volume Type
     newVolume: Ephemeral Volume
     existingVolume: Existing Volume
     newPvc: New Volume Claim
     existingPvc: Persistent Volume Claim
-    existingVct: Volume Claim Template
     bindMount: Bind-Mount
     tmpfs: Tmpfs
     secret: Secret
     configmap: Config Map
     certificate: Certificate
-    newVolumeClaimTemplate: New Volume Claim Template
   remove: Remove Volume
   subPath: Sub Path in Volume
   readOnly: Read-Only
@@ -4767,7 +4541,6 @@ formVolumeRow:
     helper: The volume will not be mounted in the current container.  It may be used by other containers in the pod.
   customLogPath:
     helpText: We will deploy a flexvolume driver to create a volume and mount the log to the host. This feature is supported on GKE cluster now.
-
 formVolumes:
   title: Volumes
   detail: Persist and share data separate from the lifecycle of an individual container.
@@ -4797,7 +4570,6 @@ formVolumes:
     configMap: Use a config map
     certificate: Use a certificate
     customLogPath: Read log files from a directory
-    vct: Add a Volume Claim Template
   table:
     kind: Kind
     source: Source
@@ -5030,14 +4802,11 @@ loginSaml:
     buttonText: "Log In with Ping"
   adfs:
     buttonText: "Log In with AD FS"
-  okta:
-    buttonText: "Log In with Okta"
   keycloak:
     buttonText: "Log In with Keycloak"
 
 loginUserPass:
   local: Use a Local User
-  externalProvider: Use a {externalName} User
   provider: "{kind}"
   userLabel: Username
   remember: Remember
@@ -5290,20 +5059,6 @@ modalRevertSettings:
   current: Current Value
   default: Default Value
 
-modalRestoreBackup:
-  title: Restore From Backup
-  backups: Available Backups
-  error: A backup is required
-  select:
-    all: Select an available backup
-
-modalRotateCertificates:
-  title: Rotate Cluster Certificates
-  caCerts: Rotate caCertificates
-  services: Rotate Service Certificates
-  select:
-    all: Rotate all service certs
-
 modalRollbackService:
   title: 'Rollback "{instanceName}"'
   titleWithSidekicks: 'Rollback "{instanceName}" & {count, plural, =1 {# sidecar} other {# sidecar}}'
@@ -5433,91 +5188,6 @@ newCatalog:
     prompt: Choose a version...
     default: The default at the time (currently {version})
 
-newMultiClusterApp:
-  answers:
-    label: Answers
-    addAction: Add Answer
-  catalog: "Catalog:"
-  category: "Category:"
-  config: Configuration Options
-  helm:
-    label: Configuration Options
-    protip: Helm templates accept a comma separated list of strings
-  kind: "Catalog Kind:"
-  license: "License:"
-  maintainedBy: Maintained by community members
-  maintainer: "Maintainer:"
-  newNamespace: New Namespace
-  customizeNamespace: "This application will be deployed into the <code>{namespaceId}</code> namespace"
-  newAppDetail: Choose application version and namespace for the application
-  appInfo: Detailed Descriptions
-  appInfoDetail: Application information and user guide
-  noConfig: This template has no configuration options
-  official: Officially Certified
-  preview: Preview
-  templateFiles: Template Files
-  seeMore: More information...
-  saveConfigure: Configure
-  saveNew: Launch
-  saveUpgrade: Upgrade
-  selectVersionAdd: Select a version of the template to deploy
-  selectVersionConfigure: Select a version of the template to configure
-  selectVersionUpgrade: Select a version of the template to upgrade to
-  startService: Start services after creating
-  support: "Support:"
-  targets:
-    label: Target Projects
-    add: Add Target
-    prompt: Choose a target project
-    target: Target
-  templateVersion: Template Version
-  titleAdd: "Add {name} App"
-  titleConfigure: "Configure {name} App"
-  titleUpgrade: "Upgrade {name} App"
-  txt: answers.txt
-  unknownType: "Unrecognized question type:"
-  upgrade: "Upgrade:"
-  url: "Project URL:"
-  version:
-    prompt: Choose a version...
-    default: The default at the time (currently {version})
-  overrides:
-    label: Answer Overrides
-    detail: Override individual answers on a per cluster/project basis
-    dropdown:
-      allProjects: "All projects in cluster {clusterName}"
-      clusterGroup: "Cluster: {clusterName}"
-    add:
-      label: Add Override
-    table:
-      scope: Scope
-      question: Question
-      answer: Answer
-      noData: There are no overrides
-      noMatch: No overrides match the current search
-    scopeOverride:
-      placeholder: Select a scope
-    questionOverride:
-      placeholder: Select a question
-    answerOverride:
-      placeholder: Question required
-  members:
-    title: Members
-    detail: Select members who can view this application
-    table:
-      name: Name
-      type: Member Type
-      accessType: Access Type
-      noData: There are no members yet
-      noMatch: No members match the current search
-      prompt: Select a Value...
-  upgradeApp:
-    title: Upgrade Strategy
-    disabled: Upgrade all apps simultaneously
-    enabled: Rolling update (batched)
-    batch: Batch size
-    interval: Interval
-
 newContainer:
   add:
     container: Deploy Pod
@@ -5623,16 +5293,11 @@ nodeDriver:
   templateOptions: "{appName} Template"
   amazoneks:
     access:
-      next: "Next: Configure Cluster"
-      loading: Loading Cluster Option from Amazon...
-      help: "Paste in your AWS key pair here. Use only IAM access keys, using keys generated from the root user will make the cluster unreachable."
-    clusterOption:
-      title: Cluster Option
-      detail: Customize the cluster that will be used to launch EKS Instances
-    kubernetesVersion:
-      label: Kubernetes Version
-      placeholder: Select the Kubernetes Version to install
+      next: "Next: Select Service Role"
+      loading: Loading Service Roles from Amazon...
     role:
+      title: Service Roles
+      detail: Choose the service role that will be used to launch EKS Instances
       label: Service Role
       noneSelected: "Rancher created role"
       help: "You may choose to not select a Service Role and Rancher will create one for you."
@@ -5901,9 +5566,6 @@ nodeDriver:
     scheduling:
       title: 3. Scheduling
       detail: Choose what hypervisor the virtual machine will be scheduled to
-    vappOptions:
-      title: 4. vApp Options
-      detail: Choose OVF environment properties
     vcenter:
       label: vCenter or ESXi Server
       placeholder: vCenter or ESXi hostname/IP
@@ -5963,30 +5625,6 @@ nodeDriver:
         placeholder: "e.g. myrancherhost"
       label: Configuration Parameters used for guestinfo
       addActionLabel: Add Parameter
-    vappHelp: "Note: standalone ESXI does not support vApp options and network protocol profiles"
-    vappMode:
-      disabled: "Do not use vApp"
-      auto: "Use vApp to configure networks with network protocol profiles"
-      manual: "Provide a custom vApp config"
-    vappTransport:
-      label: OVF environment transport
-      placeholder: "e.g. com.vmware.guestInfo"
-      help: "com.vmware.guestInfo or iso"
-    vappIpprotocol:
-      label: vApp IP protocol
-      placeholder: "e.g. IPv4"
-      help: "IPv4 or IPv6"
-    vappIpallocationpolicy:
-      label: vApp IP allocation policy
-      placeholder: "e.g. fixedAllocated"
-      help: "dhcp, fixed, transient or fixedAllocated"
-    vappProperty:
-      key:
-        placeholder: "e.g. guestinfo.interface.0.ip.0.address"
-      value:
-        placeholder: "e.g. ip:VM Network, expression or string"
-      label: vApp properties
-      addActionLabel: Add Property
   azure:
     placement:
       title: Placement
@@ -6020,78 +5658,6 @@ nodeDriver:
     environment:
       label: Environment
       placeholder: 'AzurePublicCloud'
-    resourceGroup:
-      label: Resource Group
-      placeholder: 'docker-machine'
-    sshUser:
-      label: SSH User
-      placeholder: usr1
-    storageType:
-      label: Storage Type
-    vnet:
-      label: VNet
-      placeholder: '[resourcegroup:]name'
-    subnet:
-      label: Subnet
-      placeholder: example-sub-name
-    subnetPrefix:
-      label: Subnet Prefix
-      placeholder: 128.42.0.0/21
-    availabilitySet:
-      label: Availability Set
-      placeholder: availability-set-name
-    openPort:
-      label: Open Port
-      placeholder: 'Comma-separated, e.g. 80,443'
-    privateIpAddress:
-      label: Private IP
-      placeholder: 127.0.0.1
-    usePrivateIp:
-      label: Use Private IP To Connect
-    staticPublicIp:
-      label: Public IP
-    noPublicIp:
-      label: No Public IP
-    clientId:
-      label: Client ID
-      placeholder: Your Client ID
-    clientSecret:
-      label: Client Secret
-      placeholder: Your Client Secret
-    region:
-      label: Region
-  oci:
-    placement:
-      title: Placement
-      detail: Select the placement for the instances that will be created by this template.
-    access:
-      title: Account Access
-      detail: API Keys will be used to launch Oci Instances.
-    network:
-      title: Network
-      detail: Configure the network for the instances that will be created by this template.
-    instance:
-      title: Instance
-      detail: Customize the Oci Instance that will be created.
-    subscriptionId:
-      label: Subscription ID
-      placeholder: Your Oci subscription ID
-    subscriptionCert:
-      label: Subscription Cert
-      placeholder: Your Oci
-      label: Image
-      placeholder: 'canonical:UbuntuServer:16.04.0-LTS:latest'
-    size:
-      label: Size
-    dockerPort:
-      label: Docker Port
-      placeholder: '2376'
-    publishSettingsFile:
-      label: Publish Settings
-      placeholder: Your Publish Settings file
-    environment:
-      label: Environment
-      placeholder: 'OciPublicCloud'
     resourceGroup:
       label: Resource Group
       placeholder: 'docker-machine'
@@ -6690,8 +6256,8 @@ nav:
     clusters: Clusters
     projects: Projects
     projectsIn: Projects in {cluster}
-    clustersNoData: You don't have any clusters
-    projectsNoData: Select a cluster
+    clustersNoData: You do not have any clusters
+    projectsNoData: Select a cluster to view projects
     projectNoData: This cluster has no projects
     clustersNoMatch: 'No clusters match "{searchInput}"'
     projectsNoMatch: 'No projects match "{searchInput}"'
@@ -6756,10 +6322,6 @@ nav:
     machines: Nodes
     nodeDrivers: Custom Drivers
     catalogs: Catalogs
-    globalDns: Global DNS
-    globalDnsEntries: Entries
-    globalDnsProviders: Providers
-    multiClusterApps: Multi-Cluster Apps
     security:
       tab: Security
       roles: Roles
@@ -6785,13 +6347,12 @@ nav:
     tab: Settings
     advanced: Advanced
   tools:
+    tab: Tools
     alerts: Alerts
-    backups: Backups
+    notifiers: Notifiers
     logging: Logging
     monitoring: Monitoring
-    notifiers: Notifiers
     pipeline: Pipeline
-    tab: Tools
   project:
     none: Grouped Projects/Namespaces
     namespaces: Namespaces
@@ -6804,8 +6365,6 @@ action:
   activate: Activate
   addContainer: Deploy Pod
   addSidekick: Add a Sidecar
-  backupEtcd: Backup Now
-  restoreFromEtcdBackup: Restore From Backup
   clone: Clone
   console: Open Console
   cordon: Cordon
@@ -6837,7 +6396,6 @@ action:
   resume: Resume Orchestration
   revert: Revert to Default
   rollback: Rollback
-  rotate: Rotate Certificates
   setDefault: Set as Login Environment
   setting: Setting
   start: Start
@@ -7114,6 +6672,3 @@ rkeConfigComment:
     "       kubelet:"
     "         cluster_domain: cluster.local"
     "         cluster_dns_server: 10.43.0.10"
-  docker_root_dir: |
-    ""
-    "  # Rancher Config"
